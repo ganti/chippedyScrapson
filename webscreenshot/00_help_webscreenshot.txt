@@ -1,0 +1,81 @@
+webscreenshot.py version 2.4
+
+usage: webscreenshot.py [-h] [-i INPUT_FILE] [-o OUTPUT_DIRECTORY]
+                        [-w WORKERS] [-v]
+                        [-r {phantomjs,chrome,chromium,firefox}]
+                        [--renderer-binary RENDERER_BINARY] [--no-xserver]
+                        [--window-size WINDOW_SIZE] [-p PORT] [-s] [-m]
+                        [-c COOKIE] [-a HEADER] [-u HTTP_USERNAME]
+                        [-b HTTP_PASSWORD] [-P PROXY] [-A PROXY_AUTH]
+                        [-T PROXY_TYPE] [-t TIMEOUT]
+                        [URL]
+
+optional arguments:
+  -h, --help            show this help message and exit
+
+Main parameters:
+  URL                   Single URL target given as a positional argument
+  -i INPUT_FILE, --input-file INPUT_FILE
+                        <INPUT_FILE> text file containing the target list. Ex:
+                        list.txt
+  -o OUTPUT_DIRECTORY, --output-directory OUTPUT_DIRECTORY
+                        <OUTPUT_DIRECTORY> (optional): screenshots output
+                        directory (default './screenshots/')
+  -w WORKERS, --workers WORKERS
+                        <WORKERS> (optional): number of parallel execution
+                        workers (default 4)
+  -v, --verbosity       <VERBOSITY> (optional): verbosity level, repeat it to
+                        increase the level { -v INFO, -vv DEBUG } (default
+                        verbosity ERROR)
+
+Screenshot parameters:
+  -r {phantomjs,chrome,chromium,firefox}, --renderer {phantomjs,chrome,chromium,firefox}
+                        <RENDERER> (optional): renderer to use among
+                        'phantomjs' (legacy but best results), 'chrome',
+                        'chromium', 'firefox' (version > 57) (default
+                        'phantomjs')
+  --renderer-binary RENDERER_BINARY
+                        <RENDERER_BINARY> (optional): path to the renderer
+                        executable if it cannot be found in $PATH
+  --no-xserver          <NO_X_SERVER> (optional): if you are running without
+                        an X server, will use xvfb-run to execute the renderer
+  --window-size WINDOW_SIZE
+                        <WINDOW_SIZE> (optional): width and height of the
+                        screen capture (default '1200,800')
+
+Input processing parameters:
+  -p PORT, --port PORT  <PORT> (optional): use the specified port for each
+                        target in the input list. Ex: -p 80
+  -s, --ssl             <SSL> (optional): enforce ssl for every connection
+  -m, --multiprotocol   <MULTIPROTOCOL> (optional): perform screenshots over
+                        HTTP and HTTPS for each target
+
+HTTP parameters:
+  -c COOKIE, --cookie COOKIE
+                        <COOKIE_STRING> (optional): cookie string to add. Ex:
+                        -c "JSESSIONID=1234; YOLO=SWAG"
+  -a HEADER, --header HEADER
+                        <HEADER> (optional): custom or additional header.
+                        Repeat this option for every header. Ex: -a "Host:
+                        localhost" -a "Foo: bar"
+  -u HTTP_USERNAME, --http-username HTTP_USERNAME
+                        <HTTP_USERNAME> (optional): specify a username for
+                        HTTP Basic Authentication.
+  -b HTTP_PASSWORD, --http-password HTTP_PASSWORD
+                        <HTTP_PASSWORD> (optional): specify a password for
+                        HTTP Basic Authentication.
+
+Connection parameters:
+  -P PROXY, --proxy PROXY
+                        <PROXY> (optional): specify a proxy. Ex: -P
+                        http://proxy.company.com:8080
+  -A PROXY_AUTH, --proxy-auth PROXY_AUTH
+                        <PROXY_AUTH> (optional): provides authentication
+                        information for the proxy. Ex: -A user:password
+  -T PROXY_TYPE, --proxy-type PROXY_TYPE
+                        <PROXY_TYPE> (optional): specifies the proxy type,
+                        "http" (default), "none" (disable completely), or
+                        "socks5". Ex: -T socks
+  -t TIMEOUT, --timeout TIMEOUT
+                        <TIMEOUT> (optional): renderer execution timeout in
+                        seconds (default 30 sec)

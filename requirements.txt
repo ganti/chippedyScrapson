@@ -1,0 +1,5 @@
+future
+argparse
+bs4
+scrapy
+pprint

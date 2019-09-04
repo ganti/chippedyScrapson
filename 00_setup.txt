@@ -1,0 +1,13 @@
+Setup:
+	python3
+	pip3 install -r requirements.txt
+
+	install phantomjs
+		brew tap homebrew/cask
+		brew cask install phantomjs
+
+
+Call:	
+	fill urls into list.txt
+	change params batchScreenshots.py
+	call batchScreenshots.py
