@@ -3,8 +3,8 @@ Recursive Screenshot tool für Joscha
 
 
 ## Setup
-	`python3`
-	`pip3 install -r requirements.txt`
+install `python3`
+`pip3 install -r requirements.txt`
 
 ```bash
 	install phantomjs
@@ -13,7 +13,7 @@ Recursive Screenshot tool für Joscha
 ```
 
 ###Run
-	change params `chippedyScrapson.py`
-	call `python3 chippedyScrapson.py`
+- change params `chippedyScrapson.py`
+- call `python3 chippedyScrapson.py`
 
 
