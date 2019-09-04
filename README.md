@@ -13,7 +13,7 @@ Recursive Screenshot tool für Joscha
 	brew cask install phantomjs
 ```
 
-###Run
+### Run
 - change params `chippedyScrapson.py`
 - call `python3 chippedyScrapson.py`
 
