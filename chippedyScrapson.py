@@ -68,30 +68,10 @@ def getExtractAllLinksFromPage(url, domain, depth):
 			allURLs = allURLs + result
 	return result
 		
-
-def getPageContentOfURL(url, run=3):
-	content = None
-	try:
-		page = requests.get(url)
-		if page.status_code != 200:
-			print(str(page.status_code) +" 💩 " + url)
-		else:
-			print(str(page.status_code) +" ✅ " + url)
-			content = page.content
-	except requests.exceptions.RequestException:
-		content = getPageContentOfURL(url, run=(run-1))
-		if content == None and run == 0:
-			with open('url_error.txt', 'a') as file:
-				file.write(url+"\n")
-			content = None
-	return content
-
-
 def getLinksFromPageContent(content, domain):
 	global allURLs
-	
-	bs = BeautifulSoup(content, features="lxml")
 	links = []
+	bs = BeautifulSoup(content, features="lxml")
 	for link in bs.findAll('a'):
 		links.append(link.get('href'))
 	result = []
@@ -118,6 +98,22 @@ def getLinksFromPageContent(content, domain):
 	allURLs = allURLs + result
 	return result
 
+def getPageContentOfURL(url, run=3):
+	content = None
+	try:
+		page = requests.get(url)
+		if page.status_code != 200:
+			print(str(page.status_code) +" 💩 " + url)
+		else:
+			print(str(page.status_code) +" ✅ " + url)
+			content = page.content
+	except requests.exceptions.RequestException:
+		content = getPageContentOfURL(url, run=(run-1))
+		if content == None and run == 0:
+			with open('url_error.txt', 'a') as file:
+				file.write(url+"\n")
+			content = None
+	return content
 
 if __name__ == "__main__" :
     main()
