@@ -6,7 +6,7 @@ Recursive Screenshot tool für Joscha
 - install `python3`
 - `pip3 install -r requirements.txt`
 
--install phantomjs
+- install phantomjs
 ```bash
 	install phantomjs
 	brew tap homebrew/cask
