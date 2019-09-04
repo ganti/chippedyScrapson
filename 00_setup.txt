@@ -8,6 +8,5 @@ Setup:
 
 
 Call:	
-	fill urls into list.txt
-	change params batchScreenshots.py
-	call batchScreenshots.py
+	change params chippedyScrapson.py
+	call chippedyScrapson.py
